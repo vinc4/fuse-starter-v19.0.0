@@ -77,13 +77,13 @@ export const appRoutes: Route[] = [
             initialData: initialDataResolver
         },
         children: [
-            {path: 'example', loadChildren: () => import('app/modules/admin/example/example.routes')},
+            {path: 'example', loadChildren: () => import('app/modules/landing/home/home.routes')},
             {
-                path: 'usermanagement', 
+                path: 'usermanagement',
                 loadChildren: () => import('./modules/admin/usermanagement/usermanagement.module')
-                  .then(m => m.UserManagementModule) 
+                  .then(m => m.UserManagementModule)
             },
         ]
     },
-    
+
 ];

@@ -20,7 +20,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
         id   : 'UserDashoard',
-        title: 'Dashboard',
+        title: 'Home',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/UsersDashboard',
