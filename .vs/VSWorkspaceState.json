@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\admin",
+    "\\src\\app\\modules\\admin\\usermanagement",
+    "\\src\\app\\modules\\admin\\usermanagement\\list-users"
+  ],
+  "SelectedNode": "\\src\\app\\modules\\admin\\usermanagement\\list-users\\list-users.component.ts",
+  "PreviewInSolutionExplorer": false
+}
