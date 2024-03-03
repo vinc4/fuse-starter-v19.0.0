@@ -72,7 +72,7 @@ export class UserDetailsComponent {
       // Open the drawer
       this._usersListComponent.matDrawer.open();
 
-      // Create the contact form
+      // Create the contact form phoneNumbers
       this.contactForm = this._formBuilder.group({
         id          : [''],
         avatar      : [null],
@@ -95,7 +95,7 @@ export class UserDetailsComponent {
     });
 
     this.addEmailField();
-    this.addPhoneNumberField();
+    // this.addPhoneNumberField();
 
       // Get the contacts
       this._contactsService.users$
@@ -121,8 +121,23 @@ export class UserDetailsComponent {
                 this.User = contact;
 
                 // Clear the emails and phoneNumbers form arrays
-                (this.contactForm.get('emails') as UntypedFormArray).clear();
-                (this.contactForm.get('phoneNumbers') as UntypedFormArray).clear();
+                // (this.contactForm.get('emails') as UntypedFormArray).clear();
+                // (this.contactForm.get('phoneNumbers') as UntypedFormArray).clear();
+
+                const phoneNumberFormGroup = this._formBuilder.group({
+                    country    : [contact.phoneCountry],
+                    phoneNumber: [contact.phoneNumber],
+                    label      : [''],
+                });
+                
+                if(contact.phoneNumbers === null)
+                {
+
+                    // Add the phone number form group to the phoneNumbers form array
+                    (this.contactForm.get('phoneNumbers') as UntypedFormArray).push(phoneNumberFormGroup);
+                }
+               
+
 
                 // Patch values to the form
                 this.contactForm.patchValue(contact);
@@ -592,7 +607,10 @@ export class UserDetailsComponent {
      */
     getCountryByIso(iso: string): Country
     {
-        return this.countries.find(country => country.iso === iso);
+        if(iso !== null)
+        {
+         return this.countries.find(country => country.iso === iso);
+        }
     }
 
     /**

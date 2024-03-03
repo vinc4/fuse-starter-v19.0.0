@@ -168,6 +168,11 @@ export class AuthService
     }
 
     /**
+     * Update user details
+     */
+
+
+    /**
      * Unlock session
      *
      * @param credentials

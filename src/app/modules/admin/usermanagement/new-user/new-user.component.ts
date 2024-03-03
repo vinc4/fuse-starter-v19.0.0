@@ -103,7 +103,7 @@ formFieldHelpers: any;
           address        : ['', [Validators.required]],
           role        : ['', [Validators.required]],
           lastname        : ['', [Validators.required]],
-          PhoneNumber        : ['', [Validators.required]],
+        //   PhoneNumber        : ['', [Validators.required]],
       });
 
         // Get the contacts
@@ -640,6 +640,8 @@ formFieldHelpers: any;
         contact.email =  contact.emails[0].email
         contact.UserName  =  contact.emails[0].email
         contact.Password  =  contact.PasswordHash
+        contact.PhoneNumber  = contact.phoneNumbers[0].phoneNumber;
+        
 
 
         // Update the contact on the server

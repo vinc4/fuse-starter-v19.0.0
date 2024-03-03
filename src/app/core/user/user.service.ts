@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from 'app/core/user/user.types';
-import { map, Observable, ReplaySubject, tap } from 'rxjs';
+import { Users } from 'app/modules/admin/apps/contacts/contacts.types';
+import { environment } from 'environments/environment.development';
+import { catchError, map, Observable, ReplaySubject, tap, throwError } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class UserService
 {
     private _httpClient = inject(HttpClient);
     private _user: ReplaySubject<User> = new ReplaySubject<User>(1);
-
+    private apiUrl = environment.apiUrl;
     // -----------------------------------------------------------------------------------------------------
     // @ Accessors
     // -----------------------------------------------------------------------------------------------------
@@ -36,15 +38,23 @@ export class UserService
     /**
      * Get the current signed-in user data
      */
-    get(): Observable<User>
+    get(user: User): Observable<User>
     {
-        return this._httpClient.get<User>('api/common/user').pipe(
+        return this._httpClient.get<User>(this.apiUrl + 'users/' + user.id).pipe(
             tap((user) =>
             {
                 this._user.next(user);
             }),
         );
     }
+
+    getUser(user: User): void {
+        this._httpClient.get<User>(`${this.apiUrl}users/${user.id}`).pipe(
+          tap((userResponse: User) => {
+            this._user.next(userResponse);
+          })
+        ).subscribe();
+      }
 
     /**
      * Update the user
@@ -59,5 +69,21 @@ export class UserService
                 this._user.next(response);
             }),
         );
+    }
+
+    updateUser(userid: string ,user: User): Observable<any>
+    {
+        const url = `${this.apiUrl}UpdateUserAccount/${userid}`;
+
+        return this._httpClient.put<Users>(url, user).pipe(
+            tap(updatedContact => {
+
+            }),
+            catchError(error => {
+              console.error('Error updating user:', error);
+            
+              return throwError(error);
+            })
+          );
     }
 }

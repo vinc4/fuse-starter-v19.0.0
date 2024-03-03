@@ -95,6 +95,8 @@ export class AuthSignInComponent implements OnInit
                     // Navigate to the redirect url
                     this._router.navigateByUrl(redirectURL);
 
+                
+
                 },
                 (response) =>
                 {

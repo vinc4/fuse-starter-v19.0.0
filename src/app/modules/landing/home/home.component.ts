@@ -51,6 +51,11 @@ export class LandingHomeComponent
             .subscribe((user: User) =>
             {
                 this.user = user;
+                //if user data is empty force user to create profile
+                if(user.addressId == null)
+                {
+                    this._router.navigateByUrl('/settings');
+                }
             });
 
         // Get the data

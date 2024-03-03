@@ -444,7 +444,7 @@
 
                     </div>
 
-                    <div class="mt-8">
+                    <!-- <div class="mt-8">
                         <mat-form-field
                             class="w-full"
                             [subscriptSizing]="'dynamic'">
@@ -458,10 +458,11 @@
                                 [formControlName]="'phoneNumber'"
                                 [placeholder]="'PhoneNumber'">
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <!-- Phone numbers -->
-                    <!-- <div class="mt-8">
+                    <div class="mt-8">
                         <div class="space-y-4">
+                            <ng-container *ngFor="let phoneNumber of contactForm.get('phoneNumbers')['controls']; let i = index; let first = first; let last = last; trackBy: trackByFn">
                                 <div class="relative flex">
                                     <mat-form-field
                                         class="flex-auto"
@@ -481,11 +482,6 @@
                                             matPrefix>
                                             <mat-select-trigger>
                                                 <span class="flex items-center">
-                                                    <span
-                                                        class="hidden sm:flex w-6 h-4 mr-1 overflow-hidden"
-                                                        [style.background]="'url(\'/assets/images/apps/contacts/flags.png\') no-repeat 0 0'"
-                                                        [style.backgroundSize]="'24px 3876px'"
-                                                        [style.backgroundPosition]="getCountryByIso(phoneNumber.get('country').value).flagImagePos"></span>
                                                     <span class="sm:mx-0.5 font-medium text-default">{{getCountryByIso(phoneNumber.get('country').value).code}}</span>
                                                 </span>
                                             </mat-select-trigger>
@@ -494,7 +490,7 @@
                                                     <span class="flex items-center">
                                                         <span
                                                             class="w-6 h-4 overflow-hidden"
-                                                            [style.background]="'url(\'/assets/images/apps/contacts/flags.png\') no-repeat 0 0'"
+                                                          
                                                             [style.backgroundSize]="'24px 3876px'"
                                                             [style.backgroundPosition]="country.flagImagePos"></span>
                                                         <span class="ml-2">{{country.name}}</span>
@@ -505,10 +501,27 @@
                                         </mat-select>
                                     </mat-form-field>
   
+                                    
+                                    <ng-container *ngIf="!(first && last)">
+                                        <div
+                                            class="flex items-center w-10 pl-2"
+                                            [ngClass]="{'mt-6': first}">
+                                            <button
+                                                class="w-8 h-8 min-h-8"
+                                                mat-icon-button
+                                                (click)="removePhoneNumberField(i)"
+                                                matTooltip="Remove">
+                                                <mat-icon
+                                                    class="icon-size-5"
+                                                    [svgIcon]="'heroicons_solid:trash'"></mat-icon>
+                                            </button>
+                                        </div>
+                                    </ng-container>
                                 </div>
+                            </ng-container>
                         </div>
 
-                    </div> -->
+                    </div>
 
 
 

@@ -23,7 +23,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Home',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/UsersDashboard',
+        link : '/example',
+        role : 'User'
+    },
+    {
+        id   : 'settings',
+        title: 'settings',
+        type : 'basic',
+        icon : 'heroicons_outline:cog-8-tooth',
+        link : '/settings',
         role : 'User'
     },
 

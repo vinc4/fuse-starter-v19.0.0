@@ -32,6 +32,9 @@ export interface Users
     role: string,
     background?: string,
     address:string,
+    phoneNumber:string,
+    phoneCountry:string,
+    phoneNumbers: any;
 }
 
 export interface Country

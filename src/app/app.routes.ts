@@ -83,6 +83,10 @@ export const appRoutes: Route[] = [
                 loadChildren: () => import('./modules/admin/usermanagement/usermanagement.module')
                   .then(m => m.UserManagementModule)
             },
+            {
+                path: 'settings',
+                loadChildren: () => import('./modules/user/settings/settings.routes')
+            },
         ]
     },
 

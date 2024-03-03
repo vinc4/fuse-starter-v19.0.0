@@ -67,18 +67,7 @@ export class SettingsComponent implements OnInit, OnDestroy
                 title      : 'Plan & Billing',
                 description: 'Manage your subscription plan, payment method and billing information',
             },
-            {
-                id         : 'notifications',
-                icon       : 'heroicons_outline:bell',
-                title      : 'Notifications',
-                description: 'Manage when you\'ll be notified on which channels',
-            },
-            {
-                id         : 'team',
-                icon       : 'heroicons_outline:user-group',
-                title      : 'Team',
-                description: 'Manage your existing team and change roles/permissions',
-            },
+
         ];
 
         // Subscribe to media changes
