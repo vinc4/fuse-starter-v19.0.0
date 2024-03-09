@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    apiUrl: 'https://localhost:7105/api/',
+    apiUrlDev: 'https://localhost:7105/api/',
+    apiUrl: 'https://ideliverd.org.za/api/',
     loggingLevel: 'debug'
   };
-  

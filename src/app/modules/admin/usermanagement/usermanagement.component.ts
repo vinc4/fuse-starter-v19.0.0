@@ -13,7 +13,7 @@ export class UsermanagementComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.router.navigate(['./list-users']); // Navigate to list-users route on init
+   // this.router.navigate(['./list-users']); // Navigate to list-users route on init
   }
 
 }

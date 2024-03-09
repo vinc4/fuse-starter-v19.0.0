@@ -8,8 +8,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     templateUrl    : './notifications.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone     : true,
-    imports        : [FormsModule, ReactiveFormsModule, MatSlideToggleModule, MatButtonModule],
 })
 export class SettingsNotificationsComponent implements OnInit
 {

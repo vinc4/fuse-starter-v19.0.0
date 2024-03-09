@@ -2,6 +2,15 @@
 
     <!-- Form -->
     <form [formGroup]="accountForm">
+        <div class="w-full" *ngIf="userFirstTime">
+            <fuse-alert
+                [appearance]="'outline'"
+                [type]="'warn'">
+                Please complete your profile to ensure all necessary information is provided.
+            </fuse-alert>
+            <br>
+        </div>
+
 
         <!-- Section -->
         <div class="w-full">
@@ -187,7 +196,7 @@
                 </mat-form-field>
             </div>
 
-    
+
         </div>
 
         <div class="mt-11 mb-10 border-t"></div>
@@ -199,6 +208,7 @@
                 Cancel
             </button>
             <button
+                [disabled]="accountForm.invalid"
                 class="ml-4"
                 mat-flat-button
                 type="button"

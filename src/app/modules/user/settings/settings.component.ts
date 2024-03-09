@@ -16,8 +16,6 @@ import { SettingsTeamComponent } from './team/team.component';
     templateUrl    : './settings.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone     : true,
-    imports        : [MatSidenavModule, MatButtonModule, MatIconModule, NgFor, NgClass, NgSwitch, NgSwitchCase, SettingsAccountComponent, SettingsSecurityComponent, SettingsPlanBillingComponent, SettingsNotificationsComponent, SettingsTeamComponent],
 })
 export class SettingsComponent implements OnInit, OnDestroy
 {
@@ -76,26 +74,26 @@ export class SettingsComponent implements OnInit, OnDestroy
 
         ];
 
-        // Subscribe to media changes
-        this._fuseMediaWatcherService.onMediaChange$
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(({matchingAliases}) =>
-            {
-                // Set the drawerMode and drawerOpened
-                if ( matchingAliases.includes('lg') )
-                {
-                    this.drawerMode = 'side';
-                    this.drawerOpened = true;
-                }
-                else
-                {
-                    this.drawerMode = 'over';
-                    this.drawerOpened = false;
-                }
-
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
-            });
+        // // Subscribe to media changes
+        // this._fuseMediaWatcherService.onMediaChange$
+        //     .pipe(takeUntil(this._unsubscribeAll))
+        //     .subscribe(({matchingAliases}) =>
+        //     {
+        //         // Set the drawerMode and drawerOpened
+        //         if ( matchingAliases.includes('lg') )
+        //         {
+        //             this.drawerMode = 'side';
+        //             this.drawerOpened = true;
+        //         }
+        //         else
+        //         {
+        //             this.drawerMode = 'over';
+        //             this.drawerOpened = false;
+        //         }
+        //
+        //         // Mark for check
+        //         this._changeDetectorRef.markForCheck();
+        //     });
     }
 
     /**

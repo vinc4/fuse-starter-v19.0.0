@@ -10,14 +10,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { UserService } from 'app/core/user/user.service';
 import { User } from 'app/core/user/user.types';
 import { Subject, takeUntil } from 'rxjs';
+import {Router} from "@angular/router";
 
 @Component({
     selector       : 'settings-account',
     templateUrl    : './account.component.html',
     encapsulation  : ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone     : true,
-    imports        : [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatIconModule, MatInputModule, TextFieldModule, MatSelectModule, MatOptionModule, MatButtonModule],
 })
 export class SettingsAccountComponent implements OnInit
 {
@@ -26,12 +25,14 @@ export class SettingsAccountComponent implements OnInit
     private _unsubscribeAll: Subject<any> = new Subject<any>();
     showAlert = false;
     _contactsService: any;
+    userFirstTime = false;
     /**
      * Constructor
      */
     constructor(
         private _formBuilder: UntypedFormBuilder,
         private _userService: UserService,
+        private _router: Router,
     )
     {
     }
@@ -69,9 +70,13 @@ export class SettingsAccountComponent implements OnInit
         {
             this.user = user
             this.accountForm.patchValue(user);
+            if(user.addressId == null)
+            {
+                this.userFirstTime = true;
+            }
         });
 
-        this.getUserData(this.user)
+
     }
 
     getUserData(user: User): void {
@@ -80,6 +85,7 @@ export class SettingsAccountComponent implements OnInit
             this._userService.get(user).subscribe((userData: User) =>{
                 // this.accountForm.patchValue(userData);
                  this.user = userData;
+                this._router.navigateByUrl('/landing');
             });
         }
 
@@ -101,10 +107,19 @@ export class SettingsAccountComponent implements OnInit
 
          const accountForm = this.accountForm.getRawValue();
          accountForm.id = this.user.id;
+         if(accountForm.address_line_2 == null || accountForm.address_line_2 == '')
+         {
+             accountForm.address_line_2 = "NA"
+         }
           // Update the contact on the server
           this._userService.updateUser(this.user.id, accountForm).subscribe(() =>
-          { 
+          {
                 this.accountForm.enable();
+                if(this.userFirstTime)
+                {
+                    this.getUserData(this.user);
+
+                }
           });
     }
 
@@ -112,7 +127,7 @@ export class SettingsAccountComponent implements OnInit
     toggleEditMode(arg0: boolean) {
         throw new Error('Method not implemented.');
     }
-    
 
-    
+
+
 }

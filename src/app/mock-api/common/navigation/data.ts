@@ -23,7 +23,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Home',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example',
+        link : '/landing',
         role : 'User'
     },
     {
@@ -42,7 +42,7 @@ export const compactNavigation: FuseNavigationItem[] = [
         title: 'Example',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/landing'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
@@ -51,7 +51,7 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         title: 'Example',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/landing'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
@@ -60,6 +60,6 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         title: 'Example',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/landing'
     }
 ];
