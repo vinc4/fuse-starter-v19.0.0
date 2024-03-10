@@ -10,16 +10,21 @@ import { MatDrawerContainer } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
-   
-  
+
+
 
   ],
+    providers:[
+        ListUsersComponent,
+        UsermanagementComponent,
+        AddUsersComponent,
+    ],
   imports: [
     CommonModule,
     ListUsersComponent,
     UsermanagementComponent,
     AddUsersComponent,
-    UserManagementRoutingModule // Add the routing module to imports
+    UserManagementRoutingModule
   ],
   exports: [UsermanagementComponent]
 })
