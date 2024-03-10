@@ -10,6 +10,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { FuseAlertComponent } from '@fuse/components/alert';
 
+class plans {
+    value: string;
+    label: string;
+    details: string;
+    price: number;
+}
+
 @Component({
     selector       : 'settings-plan-billing',
     templateUrl    : './plan-billing.component.html',
@@ -21,7 +28,7 @@ import { FuseAlertComponent } from '@fuse/components/alert';
 export class SettingsPlanBillingComponent implements OnInit
 {
     planBillingForm: UntypedFormGroup;
-    plans: any[];
+    plans: ({ price: string; details: string; label: string; value: string } | { price: string; details: string; label: string; value: string } | { price: string; details: string; label: string; value: string })[];
 
     /**
      * Constructor
