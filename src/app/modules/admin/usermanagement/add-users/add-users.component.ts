@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-add-users',
   templateUrl: './add-users.component.html',
   styleUrl: './add-users.component.scss',
-  standalone: true,
 })
 export class AddUsersComponent {
   private createMode:boolean = true;

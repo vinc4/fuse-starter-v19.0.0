@@ -16,8 +16,6 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-list-users',
   templateUrl: './list-users.component.html',
-  standalone: true,
-  imports        : [MatSidenavModule, RouterOutlet, NgIf, MatFormFieldModule, MatIconModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule, NgFor, NgClass, RouterLink, AsyncPipe, I18nPluralPipe],
 })
 export class ListUsersComponent implements OnInit, OnDestroy {
 
@@ -43,7 +41,7 @@ export class ListUsersComponent implements OnInit, OnDestroy {
   )
   {
   }
-  
+
   ngOnInit(): void
   {
       // Get the contacts
@@ -154,7 +152,7 @@ export class ListUsersComponent implements OnInit, OnDestroy {
       this._router.navigate(['./list-users/new-user']);
       //this._router.navigate(['./new-user'], {relativeTo: this._activatedRoute});
         return;
-        
+
         // Create the contact [routerLink]="['./', contact.id]"
         // this._contactsService.createContact().subscribe((newContact) =>
         // {
@@ -187,5 +185,5 @@ export class ListUsersComponent implements OnInit, OnDestroy {
             return item.id || index;
         }
 
-    
+
 }
