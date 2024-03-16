@@ -7,5 +7,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './add-users.component.scss',
 })
 export class AddUsersComponent {
-  private createMode:boolean = true;
+   createMode:boolean = true;
 }
